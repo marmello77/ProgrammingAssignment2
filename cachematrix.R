@@ -5,7 +5,7 @@ cat("\014")
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 rm(list=ls())
 
-## This function creates a matrix object capable of storing the original version and its inverse.
+## Creates a matrix  capable of storing an original version and its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Computes the inverse of thematrix created with makeCacheMatrix. If the inverve is cached, it is automatically recovered.
+## Computes the inverse of the matrix created with makeCacheMatrix. If the inverve is already cached, it is  recovered. Otherwise it is calculated.
 
 cacheSolve <- function(x, ...) {
   inv <- x$getInverse()
@@ -44,6 +44,5 @@ minhamatriz <- makeCacheMatrix(matrix(1:4, 2, 2))
 minhamatriz$get()
 minhamatriz$getInverse()
 cacheSolve(minhamatriz)
-minhamatriz$getInverse()
 cacheSolve(minhamatriz)
 
