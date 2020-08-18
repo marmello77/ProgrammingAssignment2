@@ -1,6 +1,10 @@
 ## Coursera's R Programming, Week 3, Programming Assignment 2
 ## Class of August, 2020
 
+cat("\014")  
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+rm(list=ls())
+
 ## This function creates a matrix object capable of storing the original version and its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -34,11 +38,12 @@ cacheSolve <- function(x, ...) {
 }       
 
 
-## Testing the functions
+## Testing my functions
 
-my_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
-my_matrix$get()
-my_matrix$getInverse()
-cacheSolve(my_matrix)
-cacheSolve(my_matrix)
+minhamatriz <- makeCacheMatrix(matrix(1:4, 2, 2))
+minhamatriz$get()
+minhamatriz$getInverse()
+cacheSolve(minhamatriz)
+minhamatriz$getInverse()
+cacheSolve(minhamatriz)
 
